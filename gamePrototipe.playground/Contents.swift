@@ -1,7 +1,5 @@
 import UIKit
 
-
-
 enum WeaponType{
     case pistol
     case lmg
@@ -21,7 +19,7 @@ class Weapon {
 }
 class Gamer {
     var name : String
-    private var favoriteWeapons : [Weapon]
+    var favoriteWeapons : [Weapon]
     
     init(name:String, favoriteWeapons : [Weapon] ){
         self.name = name
@@ -31,14 +29,19 @@ class Gamer {
 var weaponOne = Weapon(name: "cz", type: .pistol, damage: 40)
 var weaponTwo = Weapon(name: "M4", type: .AssaultRifle, damage: 40)
 var weaponThree = Weapon(name: "rpd", type: .lmg, damage: 30)
-var gamer = Gamer(name: "Jhon", favoriteWeapons: [Weapon]() )
+var gamer = Gamer(name: "Jhon", favoriteWeapons: [])
+
+
 
 
 class GameManager {
-    func compare(weaponOne : Weapon , weaponTwo : Weapon , jhon: Gamer){
+    func compare(weaponOne : Weapon , weaponTwo : Weapon , gamer: Gamer){
         if weaponOne.damage > weaponTwo.damage{
-            
+            gamer.favoriteWeapons.append(weaponOne)
+        }else {
+            gamer.favoriteWeapons.append(weaponTwo)
         }
     }
 }
+
 
